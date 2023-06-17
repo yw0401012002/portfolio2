@@ -18,7 +18,6 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-require("dotenv").config();
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
