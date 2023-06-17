@@ -1,4 +1,10 @@
 <script setup>
+import { onMounted } from 'vue';
+
+onMounted(async () => {
+  $(".drawer").drawer();
+  await import("../../assets/js/common.js")
+});
 </script>
 
 <template>
