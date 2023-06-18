@@ -1,0 +1,926 @@
+@charset "utf-8";
+
+/* -------------------------------------
+　reset
+------------------------------------- */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+body {
+  line-height:1;
+}
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary {
+  display:block;
+}
+blockquote, q {
+  quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content:'';
+  content:none;
+}
+a {
+  margin:0;
+  padding:0;
+  border:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+ins {
+  background-color:#ff9;
+  color:#000;
+  text-decoration:none;
+}
+mark {
+  background-color:#ff9;
+  color:#000;
+  font-style:italic;
+  font-weight:bold;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+  border-bottom:1px dotted #000;
+  cursor:help;
+}
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+hr {
+  display:block;
+  height:1px;
+  border:0;
+  border-top:1px solid #cccccc;
+  margin:1em 0;
+  padding:0;
+}
+input, select {
+  vertical-align:middle;
+}
+img {
+  vertical-align:bottom;
+  font-size:0;
+  line-height: 0;
+  border-style: none;
+  border-width: 0px;
+}
+
+
+/* -------------------------------------
+　common
+------------------------------------- */
+
+body{
+	font-family: YuGothic, "游ゴシック体", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-size:16px;
+  line-height:28px;
+  color: #1a1a1a;
+  background-color:#ffffff;
+  -webkit-text-size-adjust: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* リンク */
+a:hover img {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+a:link {
+  color: #1a1a1a;
+}
+a:visited {
+  color: #1a1a1a;
+}
+a:hover {
+  color: #023373;
+}
+input:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+
+/* -------------------------------------
+　font family
+------------------------------------- */
+
+/* Regular 400 */
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+/* Regular 400 italic */
+@font-face {
+  font-family: "Roboto-Regular-italic";
+  src: url("../fonts/Roboto-Italic.ttf");
+}
+/* Medium 500 */
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../fonts/Roboto-Medium.ttf");
+}
+/* Bold 700 */
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("../fonts/Roboto-Bold.ttf");
+}
+
+
+/* -------------------------------------
+　スライド
+------------------------------------- */
+
+/* 右から左 */
+
+.fadeRightTrigger {
+    opacity: 0;
+}
+
+.fadeRight {
+animation-name:fadeRightAnime;
+animation-duration:0.5s;
+animation-fill-mode:forwards;
+opacity:0;
+}
+
+@keyframes fadeRightAnime{
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* 下から上 */
+
+.fadeUpTrigger {
+    opacity: 0;
+}
+
+.fadeUp {
+animation-name:fadeUpAnime;
+animation-duration:0.5s;
+animation-fill-mode:forwards;
+opacity:0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* -------------------------------------
+　非表示
+------------------------------------- */
+
+.pc-no {
+  display: none!important;
+}
+.sp-no {
+  display: block!important;
+}
+.pc-no-inline {
+  display: none!important;
+}
+.sp-no-inline {
+  display: inline-block!important;
+}
+
+
+/* -------------------------------------
+　header
+------------------------------------- */
+
+.header {
+  background-color: #ffffff;
+  position: relative;
+  align-items: center;
+  padding: 0 40px;
+  height: 95px;
+  z-index: 10000;
+  box-sizing: border-box;
+}
+.header-border {
+  height: 96px;
+  border-bottom: 1px solid #d9d9d9;
+  box-sizing: border-box;
+}
+.lower-header {
+  height: 96px;
+  border-bottom: 1px solid #dddddd;
+}
+
+/* ロゴ */
+header .logo {
+  position: absolute;
+  top:15px;
+  left: 40px;
+}
+header .logo a {
+  display: block;
+  width: 65px;
+  height: 65px;
+  background-image: url(../images/logo.svg);
+  background-size: auto 65px;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+}
+header .logo a:hover {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+/* グローバルメニュー */
+.global-navi {
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+}
+.global-navi > ul {
+  display: flex;
+  align-items:center;
+}
+.global-navi > ul li {
+  list-style: none;
+}
+.global-navi > ul li a {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
+  letter-spacing: 0.025em;
+  color: #1a1a1a;
+  text-decoration: none;
+  /* Roboto Medium 500 */
+  font-family: "Roboto-Medium", sans-serif;
+  /*線の基点*/
+  position: relative;
+}
+.global-navi > ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 10%;
+  width: 80%;
+  height: 6px;
+  background-color:#023373;
+  /*アニメーション*/
+  transition: all .3s;
+  transform: scale(0, 1) translate(0, 0);
+  transform-origin: left top;
+}
+.global-navi > ul li.focus a::after,
+.global-navi > ul li a:hover::after {
+  transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+
+/* スマホ グローバルメニュー 非表示 */
+.drawer-toggle,
+.drawer-nav {
+	visibility:hidden;
+}
+
+
+/* -------------------------------------
+　header固定
+------------------------------------- */
+
+.fixed {
+  position:fixed;
+  top:0;
+  width:100%;
+  height: 70px;
+  z-index:10000;
+  box-shadow: 0 10px 8px rgba(0,0,0,0.04);
+  opacity: 0.90;
+  border: none;
+}
+
+/* ロゴ */
+.fixed .logo {
+  position: absolute;
+  top:10px;
+  left: 40px;
+}
+.fixed .logo a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url(../images/logo.svg);
+  background-size: auto 50px;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+}
+
+/* グローバルメニュー */
+.fixed .global-navi > ul li a {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 23px;
+  padding-left: 25px;
+  padding-right: 25px;
+  letter-spacing: 0.025em;
+  color: #1a1a1a;
+  text-decoration: none;
+  /* Roboto Medium 500 */
+  font-family: "Roboto-Medium", sans-serif;
+  /*線の基点*/
+  position: relative;
+}
+
+
+/* -------------------------------------
+　footer
+------------------------------------- */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 40px;
+  width: 100%;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+.footer-border {
+  border-top: 1px solid #d9d9d9;
+}
+.f-navi {
+  margin-bottom: 16px;
+}
+.f-navi ul {
+  display: flex;
+}
+.f-navi ul li {
+  margin-right: 33px;
+  list-style: none;
+}
+.f-navi ul li:last-child {
+  margin-right: 0;
+}
+.f-navi ul li a {
+  font-size: 15px;
+  line-height: 1.2em;
+  letter-spacing: 0.025em;
+  color: #1a1a1a;
+  text-decoration: none;
+  /* Roboto Medium 500 */
+  font-family: "Roboto-Medium", sans-serif;
+}
+.f-navi ul li a:hover {
+  color: #023373;
+}
+.copy-rights {
+  font-size: 12px;
+  line-height: 1.3em;
+  letter-spacing: 0.025em;
+  color: #7f7f7f;
+  /* Roboto Regular 400 */
+  font-family: "Roboto-Regular", sans-serif;
+}
+.f-right-wrap .logo {
+  margin-bottom: 15px;
+}
+.f-right-wrap .logo a {
+  margin: 0 0 0 auto;
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-image: url(../images/f_logo.svg);
+  background-size: auto 60px;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+}
+.f-right-wrap .logo a:hover {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+.f-right-wrap .text {
+  font-size: 12px;
+  line-height: 1.4em;
+  font-weight: bold;
+  color: #7f7f7f;
+}
+
+
+/* -------------------------------------
+　contents
+------------------------------------- */
+
+.basic-wrap {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+.news-wrap {
+  padding: 100px 15px 95px 15px;
+  max-width: 1230px;
+  box-sizing: border-box;
+}
+.service-wrap {
+  padding: 70px 15px;
+}
+.company-wrap {
+  padding: 100px 0;
+}
+.company-wrap .sub-title {
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+.company-wrap .company-info-wrap {
+  padding-top: 91px;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1230px;
+  box-sizing: border-box;
+}
+.about-wrap {
+  padding: 95px 0 80px 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.bottom-btn-wrap {
+  padding: 90px 15px;
+}
+.bk-gray {
+  background-color: #f9f9f9;
+}
+
+/* タイトル */
+.sub-title {
+  margin-bottom: 70px;
+}
+.sub-title-bottom {
+  margin-top: 70px;
+}
+.sub-title p {
+  margin-bottom: 12px;
+  font-size: 55px;
+  line-height: 1em;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  text-align: center;
+  /* Roboto Medium 500 */
+  font-family: "Roboto-Medium", sans-serif;
+}
+.sub-title h2 {
+  font-size: 17px;
+  line-height: 1.4em;
+  color: #404040;
+  font-style: italic;
+  text-align: center;
+  font-weight: normal;
+}
+
+
+/* -------------------------------------
+　slick メイン画像
+------------------------------------- */
+
+.main-wrap {
+  position: relative;
+  overflow: hidden;
+  background-color: #fafafa;
+}
+.main-wrap ul li {
+  list-style: none;
+}
+.main-wrap ul li img {
+  width: 100%;
+  height: calc(100vh - 95px);
+  object-fit: cover;
+  font-family: 'object-fit: cover; object-position: 50% 50%;';
+}
+
+/* SCROLL TO VIEW  */
+
+.scroll-view-wrap {
+  position:absolute;
+  right:0;
+  bottom:0;
+  width: 60px;
+  height: calc(100vh - 95px);
+  background-color: rgba(255,255,255,0.3);
+  overflow: hidden;
+}
+.scroll-view {
+  position:absolute;
+  left:50%;
+  bottom:0;
+  height:80px;
+}
+
+/* Scrollテキストの描写 */
+.scroll-view a {
+  position: absolute;
+  top: -9em;
+  left:0;
+  transform: translateX(-50%);
+  color: #1a1a1a;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  /* Roboto Regular 400 */
+  font-family: "Roboto-Regular", sans-serif;
+}
+.scroll-view a:hover{
+  color: #023373;
+}
+
+/* 線の描写 */
+.scroll-view::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 80px;
+  background: #023373;
+  animation: pathmove 1.4s ease-in-out infinite;
+  opacity:0;
+}
+
+/*高さ・位置・透過が変化して線が上から下に動く*/
+@keyframes pathmove{
+  0%{
+    height:0;
+    top:0;
+    opacity: 0;
+  }
+  30%{
+    height:100px;
+    opacity: 1;
+  }
+  100%{
+    height:0;
+    top:80px;
+    opacity: 0;
+  }
+}
+
+
+/* メイン画像テキスト */
+.slick-outer {
+  position: relative;
+}
+.slick-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 150;
+  color: #1a1a1a;
+  margin: 0 0 0 65px;
+  padding: 0;
+}
+.slick-content .text1 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  line-height: 1.4em;
+  font-weight: bold;
+}
+.slick-content .text2 {
+  margin-bottom: 15px;
+  font-size: 50px;
+  line-height: 1.5em;
+  font-weight: bold;
+}
+.slick-content .text3 {
+  font-size: 20px;
+  line-height: 1.7em;
+}
+
+
+/* -------------------------------------
+　NEWS
+------------------------------------- */
+
+.info-box dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+.info-box dl dt {
+  margin-bottom: 21px;
+  padding-bottom: 22px;
+  padding-left: 5px;
+  width:10em;
+  line-height: 1.8em;
+  color: #7f7f7f;
+  border-bottom: 1px solid #d9d9d9;
+  box-sizing: border-box;
+}
+.info-box dl dd {
+  margin-bottom: 21px;
+  padding-bottom: 22px;
+  padding-right: 5px;
+  width:calc(100% - 10em);
+  line-height: 1.8em;
+  border-bottom: 1px solid #d9d9d9;
+  box-sizing: border-box;
+}
+
+
+/* -------------------------------------
+　ABOUT
+------------------------------------- */
+
+.about-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1230px;
+  box-sizing: border-box;
+}
+.about-left::before {
+  content: "";
+  position: absolute;
+  top: -95px;
+  left: 147px;
+  height: 316px;
+  width: 100vw;
+  background-color: #f2f2f2;
+  z-index: -1;
+}
+.about-left {
+  width: 48%;
+}
+.about-left .title-wrap h2 {
+  margin-bottom: 6px;
+  font-size: 16px;
+  line-height: 1.4em;
+  color: #404040;
+  font-style: italic;
+  font-weight: normal;
+}
+.about-left .title-wrap p {
+  margin-bottom: 98px;
+  font-size: 55px;
+  line-height: 1em;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  /* Roboto Medium 500 */
+  font-family: "Roboto-Medium", sans-serif;
+}
+.about-left .about-text h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 1.6em;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+.about-left .about-text .text-box p {
+  margin-bottom: 1em;
+}
+.about-left .about-text .text-box p:last-child {
+  margin-bottom: 0;
+}
+.about-right {
+  width: 45.33%;
+}
+.about-right figure img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+}
+
+
+/* -------------------------------------
+　SERVICE
+------------------------------------- */
+
+.service-contents {
+  padding-top: 70px;
+}
+.service-box {
+  padding: 83px 75px;
+  background-color: #ffffff;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+}
+.service-box .title-wrap {
+  display: flex;
+  align-items:flex-end;
+  padding-bottom: 40px;
+  border-bottom: 1px #d9d9d9 solid;
+}
+.service-box .title-left h2 {
+  margin-bottom: 6px;
+  font-size: 17px;
+  line-height: 1.4em;
+  color: #404040;
+  font-style: italic;
+  font-weight: normal;
+}
+.service-box .title-left p {
+  font-size: 55px;
+  line-height: 1em;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  /* Roboto Medium 500 */
+  font-family: "Roboto-Medium", sans-serif;
+}
+.service-box .title-right {
+  margin-left: 40px;
+}
+
+.service-area {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.service-area .service-image {
+  width: 35.44%;
+}
+.service-area .service-image figure img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+}
+.service-area .service-text {
+  padding-top: 10px;
+  width: 59%;
+}
+.service-area .service-text .url {
+  margin-bottom: 30px;
+  line-height: 1.4em;
+}
+.service-area .service-text h3 {
+  margin-bottom: 27px;
+  font-size: 43px;
+  line-height: 1em;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  /* Roboto Medium 500 */
+  font-family: "Roboto-Medium", sans-serif;
+}
+.service-area .service-text .text-box p {
+  margin-bottom: 1em;
+}
+.service-area .service-text .text-box p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* -------------------------------------
+　COMPANY
+------------------------------------- */
+
+.company-info-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.company-info-wrap .company-info-left {
+  padding-top: 34px;
+  padding-right: 40px;
+  width: 50%;
+  box-sizing: border-box;
+}
+.company-info-wrap .company-info-right {
+  padding-top: 34px;
+  padding-left: 40px;
+  width: 50%;
+  border-left: 1px solid #d9d9d9;
+  box-sizing: border-box;
+}
+.company-info-wrap table {
+  margin-bottom: 8px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.company-info-wrap table th {
+  width: 6em;
+  text-align: left;
+  padding-bottom: 25px;
+  vertical-align: top;
+}
+.company-info-wrap table td {
+  padding-bottom: 25px;
+}
+.company-info-wrap table td.tel-wrap a[href*="tel:"] {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+.company-info-wrap table td.url-wrap p {
+  margin-bottom: 1em;
+}
+.company-info-wrap table td.url-wrap p:last-child {
+  margin-bottom: 0;
+}
+.map-wrap iframe {
+  width: 100%;
+  height: 50vh;
+  border: 0;
+}
+
+
+/* -------------------------------------
+　CONTACT
+------------------------------------- */
+
+.contact-wrap {
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 1230px;
+  box-sizing: border-box;
+}
+.contact-wrap ul {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 685px;
+}
+.contact-wrap ul li {
+  margin-bottom: 40px;
+  list-style: none;
+}
+.contact-wrap ul li:last-child {
+  margin-bottom: 0;
+}
+.contact-wrap ul li a {
+  display: block;
+  padding: 32px 15px;
+  border: 1px solid #d9d9d9;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
+  box-sizing: border-box;
+}
+.contact-wrap ul li a:hover {
+  border: 1px solid #023373;
+  background-color: #023373;
+  color: #ffffff;
+}
+.contact-wrap ul li a div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.contact-wrap ul li a h2 {
+  font-size: 30px;
+  line-height: 34px;
+  letter-spacing: 0.025em;
+  /* Roboto Regular 400 */
+  font-family: "Roboto-Regular", sans-serif;
+}
+.contact-wrap ul li a p {
+  margin-left: 14px;
+  font-size: 17px;
+  line-height: 32px;
+  color: #404040;
+  font-style: italic;
+}
+.contact-wrap ul li a:hover p {
+  color: #ffffff;
+}
+
+
