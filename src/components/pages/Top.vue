@@ -17,7 +17,7 @@ onMounted(async () => {
 <div class="main-wrap">
   <ul>
     <li>
-      <img data-lazy="/src/assets/images/main2.jpg" alt="">
+      <img data-lazy="/assets/images/main2.jpg" alt="">
       <div class="slick-content">
         <p class="text1">Shaping the Future Together</p>
         <p class="text2">集客に強い！<br>高品質なホームページ制作！</p>
@@ -25,7 +25,7 @@ onMounted(async () => {
       </div>
     </li>
     <li>
-      <img data-lazy="/src/assets/images/main3.jpg" alt="">
+      <img data-lazy="/assets/images/main3.jpg" alt="">
       <div class="slick-content">
         <p class="text1">Shaping the Future Together</p>
         <p class="text2">個人事業主・中小企業の<br>未来を豊かにする。</p>
@@ -71,7 +71,7 @@ onMounted(async () => {
       </div>
     </div>
     <div class="about-right">
-      <figure class="fadeRightTrigger"><img src="/src/assets/images/about-image.jpg" alt=""></figure>
+      <figure class="fadeRightTrigger"><img src="/assets/images/about-image.jpg" alt=""></figure>
     </div>
   </div>
 </div>
