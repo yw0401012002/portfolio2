@@ -5,6 +5,15 @@ onMounted(async () => {
   $(".drawer").drawer();
   await import("../../assets/js/common.js")
 });
+
+const spMenuBtnClick = (evt) => {
+  evt.preventDefault()
+  // drawer-toggleクラスを持つ要素が複数存在し、
+  // メニューの開閉をする関数がボタン以外にセットされている場合があるので、
+  // jQueryのclick関数で全てのdrawer-toggleクラス要素に対してクリックイベントを発生させる。
+  $('.drawer-toggle').click()
+};
+
 </script>
 
 <template>
@@ -21,7 +30,7 @@ onMounted(async () => {
   </nav>
 
   <!--sp menu start-->
-  <button type="button" class="drawer-toggle drawer-hamburger">
+  <button type="button" @click="spMenuBtnClick" class="drawer-toggle drawer-hamburger">
     <span class="sr-only">menu</span>
     <span class="drawer-hamburger-icon"></span>
   </button>
