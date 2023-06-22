@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ポケットウェブ</title>
+    <meta name="description" content="ポケットウェブ">
+    <link rel="canonical" href="https://xxxxxxxx.com">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/import.css">
+    <link rel="stylesheet" href="./assets/jquery/drawer/drawer.css">
+    <link rel="stylesheet" href="./assets/jquery/slick/slick.css">
+    <link rel="stylesheet" href="./assets/jquery/slick/slick-theme.css">
+
+    <!-- jQuery関連ライブラリの読み込み -->
+    <script type="text/javascript" src="./assets/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./assets/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Vue.js 用 UIライブラリの Element Plus を読み込む -->
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css" />
+    <script src="https://unpkg.com/element-plus"></script>
+
+  </head>
+
+  <body class="drawer drawer--right">
+
+    <!--
+      id="app" 配下は main.js 内で定義されている、
+      Appオブジェクトのtemplateとして制御される。
+    -->
+    <div id="app">
+
+      <common-header></common-header>
+
+      <top-page></top-page>
+
+      <common-footer></common-footer>
+
+    </div>
+
+    <!-- components の読み込み -->
+    <script src="./components/CommonFooter.js" ></script>
+    <script src="./components/CommonHeader.js" ></script>
+    <script src="./components/TopPage.js" ></script>
+
+    <!-- main.js の読み込み -->
+    <script src="./main.js" ></script>
+
+    <!-- jQuery関連ライブラリの読み込み -->
+    <script type="text/javascript" src="./assets/jquery/drawer/drawer.js"></script>
+    <script type="text/javascript" src="./assets/jquery/drawer/iscroll.js"></script>
+    <script type="text/javascript" src="./assets/jquery/slick/slick.min.js"></script>
+    <script type="text/javascript" src="./assets/js/top.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.drawer').drawer();
+      });
+    </script>
+    <script type="text/javascript" src="./assets/js/common.js"></script>
+
+  </body>
+</html>
