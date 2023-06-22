@@ -3,6 +3,11 @@ import { reactive } from '@vue/reactivity'
 import { useRouter } from "vue-router"
 import CommonHeader from '../header/CommonHeader.vue'
 import CommonFooter from '../header/CommonFooter.vue'
+import { onMounted } from 'vue';
+
+onMounted(async () => {
+  await import("../../assets/js/top.js")
+});
 </script>
 
 <template>
